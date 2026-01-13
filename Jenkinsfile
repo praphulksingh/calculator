@@ -8,13 +8,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git branch: 'master',
-                    url: 'https://github.com/USERNAME/REPO_NAME.git'
-            }
-        }
-
         stage('Validate') {
             steps {
                 sh 'mvn validate'
@@ -45,15 +38,9 @@ pipeline {
             }
         }
 
-        stage('Install') {
-            steps {
-                sh 'mvn install'
-            }
-        }
-
         stage('Deploy') {
             steps {
-                sh 'mvn deploy'
+                sh 'mvn install'
             }
         }
 
@@ -72,10 +59,10 @@ pipeline {
 
     post {
         success {
-            echo '✅ GitHub Maven project built with all 9 goals'
+            echo '✅ Maven pipeline executed successfully'
         }
         failure {
-            echo '❌ Pipeline failed'
+            echo '❌ Maven pipeline failed'
         }
     }
 }

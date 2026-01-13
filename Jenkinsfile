@@ -5,49 +5,49 @@ pipeline {
 
         stage('Validate') {
             steps {
-                sh 'mvn validate'
+                bat 'mvn validate'
             }
         }
 
         stage('Compile') {
             steps {
-                sh 'mvn compile'
+                bat 'mvn compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package'
+                bat 'mvn package'
             }
         }
 
         stage('Verify') {
             steps {
-                sh 'mvn verify'
+                bat 'mvn verify'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'mvn install'
+                bat 'mvn install'
             }
         }
 
         stage('Clean') {
             steps {
-                sh 'mvn clean'
+                bat 'mvn clean'
             }
         }
 
         stage('Site') {
             steps {
-                sh 'mvn site'
+                bat 'mvn site'
             }
         }
     }

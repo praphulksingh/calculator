@@ -1,4 +1,4 @@
-name: Java Calculator Maven CI (9 Goals)
+name: Java Maven CI (9 Goals)
 
 on:
   push:
